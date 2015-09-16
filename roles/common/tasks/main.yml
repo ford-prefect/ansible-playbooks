@@ -1,0 +1,7 @@
+---
+
+- include: create_user.yml name={{ user_name }}
+                           password={{ user_password }}
+                           ssh_pubkey={{ user_ssh_pubkey }}
+
+- include: sshd_config.yml

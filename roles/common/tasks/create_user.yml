@@ -1,0 +1,7 @@
+---
+
+- name: Create user {{ name }}
+  user: name={{ name }} groups=wheel password={{ password }}
+
+- name: Install ssh key for {{ name }}
+  authorized_key: user={{ name }} key={{ ssh_pubkey }}

@@ -1,0 +1,6 @@
+---
+
+- hosts: boxes
+  remote_user: root
+  roles:
+    - common

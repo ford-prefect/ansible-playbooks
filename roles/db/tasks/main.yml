@@ -1,0 +1,37 @@
+---
+
+- name: Install mariadb
+  dnf: name=mariadb-server state=present
+  become: yes
+
+- name: Install python-mysql (for Ansible)
+  dnf: name=python-mysql state=present
+  become: yes
+
+# Default SELinux policy is to not allow connections on any port, which is good
+
+- name: Enable mariadb
+  service: name=mariadb enabled=yes
+  become: yes
+
+- name: Start mariadb
+  service: name=mariadb state=started
+  become: yes
+
+- name: Set mariadb root user password
+  mysql_user: name=root host=localhost password={{ mariadb_password }} state=present login_user=root login_password={{ mariadb_password }} check_implicit_admin=true
+  notify: Restart mariadb
+
+- name: Remove anonymous mariadb accounts
+  mysql_user: name='' host={{ item }} state=absent login_user=root login_password={{ mariadb_password }}
+  notify: Restart mariadb
+  with_items:
+    - localhost
+    - "{{ ansible_hostname }}"
+
+- name: Drop mariadb root users for non-localhost
+  mysql_user: name=root host='li%' state=absent login_user=root login_password={{ mariadb_password }}
+  notify: Restart mariadb
+
+- name: Remove test mariadb database
+  mysql_db: name=test state=absent login_user=root login_password={{ mariadb_password }}

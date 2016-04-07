@@ -10,3 +10,8 @@ This assumes that your inventory consists of hosts named `boxes` to which all th
 * Will be run as root
 * Sets up a new user
 * Sets up sshd config to not allow root access
+
+## setup.yml
+
+* ansible-playbook -i `ansible_source_dir/contrib/inventory/linode.py` --ask-becomepass setup.yml
+* Sets up the box to host the services that are needed

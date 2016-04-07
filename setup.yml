@@ -1,0 +1,7 @@
+---
+
+- hosts: boxes
+  become_method: sudo
+  roles:
+    - basic
+    - web

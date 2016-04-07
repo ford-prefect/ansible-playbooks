@@ -1,0 +1,13 @@
+---
+
+- name: Install Apache
+  dnf: name=httpd state=present
+  become: yes
+
+- name: Enable Apache
+  service: name=httpd enabled=yes
+  become: yes
+
+- name: Start Apache
+  service: name=httpd state=started
+  become: yes

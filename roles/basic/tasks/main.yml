@@ -1,0 +1,7 @@
+---
+
+- name: Install basic packages
+  dnf: name={{ item }} state=present
+  become: yes
+  with_items:
+    - net-tools # for netstat

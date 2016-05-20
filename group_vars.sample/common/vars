@@ -1,0 +1,5 @@
+---
+
+user_name: myuser
+user_password: "{{ vault_user_password |password_hash('sha512')}}"
+user_ssh_pubkey: ssh-rsa <your SSH public key goes here>

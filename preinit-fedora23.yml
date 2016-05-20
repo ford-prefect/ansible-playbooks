@@ -1,0 +1,8 @@
+- hosts: boxes
+  remote_user: root
+  gather_facts: false
+  become_user: root
+  become: yes
+  tasks:
+    - name: install python and deps for ansible modules
+      raw: dnf install -y python2 python2-dnf libselinux-python

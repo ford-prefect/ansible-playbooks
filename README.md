@@ -19,6 +19,6 @@ To make things easier to manage, I create a separate repository called with my p
 
 ## setup.yml
 
-* Add a `mariadb_password` variable to `group_vars/db` (suggested that you use a vault)
+* Add a `mariadb_password` variable to `group_vars/mariadb` (suggested that you use a vault)
 * `ansible-playbook -i ansible_source_dir/contrib/inventory/linode.py --ask-become-pass --ask-vault-pass setup.yml`
 * Sets up the box to host the services that are needed

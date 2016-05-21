@@ -6,7 +6,7 @@ This assumes that your inventory consists of hosts named `boxes` to which all th
 
 The `group_vars.sample` directory contains an example of the group variables that need to be set up. You can edit these to fit your needs. The password for the vault files is `password`. You'll probably want to replace them using `ansible-vault create`.
 
-To make things easier to manage, I create a separate repository called with my [rivate group variables and add a symlink at the top-level to that named `group_vars`.
+To make things easier to manage, I create a separate repository called with my private group variables and add a symlink at the top-level to that named `group_vars`.
 
 ## init.yml
 
